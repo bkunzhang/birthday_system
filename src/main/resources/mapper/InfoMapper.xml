@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tyb.birthy_polaris.mapper.InfoMapper">
+
+<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 id,	info_name,	info_sex,	info_birthday,	info_calendar,	info_photo,	info_relation,	info_gid,	info_fid,	isDel,	info_des
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultType="info" parameterType="java.lang.String">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM bs_info
+		 WHERE info_id = #{infoId}
+	</select>
+
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		 DELETE FROM bs_info
+		 WHERE info_id = #{infoId}
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insert" parameterType="info">
+		 INSERT INTO bs_info
+ 		(info_id,info_name,info_sex,info_birthday,info_calendar,info_photo,info_relation,info_gid,info_fid,isDel,info_des) 
+		 VALUES 
+ 		(#{infoId},#{infoName},#{infoSex},#{infoBirthday},#{infoCalendar},#{infoPhoto},#{infoRelation},#{infoGid},#{infoFid},#{isDel},#{infoDes}) 
+	</insert>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="info">
+		 INSERT INTO bs_info
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="infoId != null">
+				 info_id,
+			</if>
+			<if test="infoName != null">
+				 info_name,
+			</if>
+			<if test="infoSex != null">
+				 info_sex,
+			</if>
+			<if test="infoBirthday != null">
+				 info_birthday,
+			</if>
+			<if test="infoCalendar != null">
+				 info_calendar,
+			</if>
+			<if test="infoPhoto != null">
+				 info_photo,
+			</if>
+			<if test="infoRelation != null">
+				 info_relation,
+			</if>
+			<if test="infoGid != null">
+				 info_gid,
+			</if>
+			<if test="infoFid != null">
+				 info_fid,
+			</if>
+			<if test="isDel != null">
+				 isDel,
+			</if>
+			<if test="infoDes != null">
+				 info_des,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="infoId!=null">
+				 #{infoId},
+			</if>
+			<if test="infoName!=null">
+				 #{infoName},
+			</if>
+			<if test="infoSex!=null">
+				 #{infoSex},
+			</if>
+			<if test="infoBirthday!=null">
+				 #{infoBirthday},
+			</if>
+			<if test="infoCalendar!=null">
+				 #{infoCalendar},
+			</if>
+			<if test="infoPhoto!=null">
+				 #{infoPhoto},
+			</if>
+			<if test="infoRelation!=null">
+				 #{infoRelation},
+			</if>
+			<if test="infoGid!=null">
+				 #{infoGid},
+			</if>
+			<if test="infoFid!=null">
+				 #{infoFid},
+			</if>
+			<if test="isDel!=null">
+				 #{isDel},
+			</if>
+			<if test="infoDes!=null">
+				 #{infoDes},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="info">
+		 UPDATE bs_info
+ 		 <set> 
+			<if test="infoName != null">
+				 info_name = #{infoName},
+			</if>
+			<if test="infoSex != null">
+				 info_sex = #{infoSex},
+			</if>
+			<if test="infoBirthday != null">
+				 info_birthday = #{infoBirthday},
+			</if>
+			<if test="infoCalendar != null">
+				 info_calendar = #{infoCalendar},
+			</if>
+			<if test="infoPhoto != null">
+				 info_photo = #{infoPhoto},
+			</if>
+			<if test="infoRelation != null">
+				 info_relation = #{infoRelation},
+			</if>
+			<if test="infoGid != null">
+				 info_gid = #{infoGid},
+			</if>
+			<if test="infoFid != null">
+				 info_fid = #{infoFid},
+			</if>
+			<if test="isDel != null">
+				 isDel = #{isDel},
+			</if>
+			<if test="infoDes != null">
+				 info_des = #{infoDes},
+			</if>
+
+ 		 </set>
+		 WHERE info_id = #{infoId}
+	</update>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKey" parameterType="info">
+		 UPDATE bs_info
+		 SET 
+			 info_name = #{infoName},
+			 info_sex = #{infoSex},
+			 info_birthday = #{infoBirthday},
+			 info_calendar = #{infoCalendar},
+			 info_photo = #{infoPhoto},
+			 info_relation = #{infoRelation},
+			 info_gid = #{infoGid},
+			 info_fid = #{infoFid},
+			 isDel = #{isDel},
+			 info_des = #{infoDes}
+		 WHERE info_id = #{infoId}
+	</update>
+
+</mapper>

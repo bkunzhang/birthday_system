@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tyb.birthy_polaris.mapper.GroupMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 id,	gr_name,	u_id,	isDel
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultType="group" parameterType="java.lang.String">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM bs_group
+		 WHERE gr_id = #{grId}
+	</select>
+
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		 DELETE FROM bs_group
+		 WHERE gr_id = #{grId}
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insert" parameterType="group">
+		 INSERT INTO bs_group
+ 		(gr_id,gr_name,u_id,isDel) 
+		 VALUES 
+ 		(#{grId},#{grName},#{uId},#{isDel}) 
+	</insert>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="group">
+		 INSERT INTO bs_group
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="grId != null">
+				 gr_id,
+			</if>
+			<if test="grName != null">
+				 gr_name,
+			</if>
+			<if test="uId != null">
+				 u_id,
+			</if>
+			<if test="isDel != null">
+				 isDel,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="grId!=null">
+				 #{grId},
+			</if>
+			<if test="grName!=null">
+				 #{grName},
+			</if>
+			<if test="uId!=null">
+				 #{uId},
+			</if>
+			<if test="isDel!=null">
+				 #{isDel},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="group">
+		 UPDATE bs_group
+ 		 <set> 
+			<if test="grName != null">
+				 gr_name = #{grName},
+			</if>
+			<if test="uId != null">
+				 u_id = #{uId},
+			</if>
+			<if test="isDel != null">
+				 isDel = #{isDel},
+			</if>
+
+ 		 </set>
+		 WHERE gr_id = #{grId}
+	</update>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKey" parameterType="group">
+		 UPDATE bs_group
+		 SET 
+			 gr_name = #{grName},
+			 u_id = #{uId},
+			 isDel = #{isDel}
+		 WHERE gr_id = #{grId}
+	</update>
+
+</mapper>

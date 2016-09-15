@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tyb.birthy_polaris.mapper.InfoMapper">
+<mapper namespace="com.tyb.birthdaySystem.dao.IInfoDao">
 
 <!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		 id,	info_name,	info_sex,	info_birthday,	info_calendar,	info_photo,	info_relation,	info_gid,	info_fid,	isDel,	info_des
+		 info_id,	info_name,	info_sex,	info_birthday,	info_calendar,	info_photo,	info_relation,	info_gid,	info_fid,	isDel,	info_des
 	</sql>
 
+	<resultMap type="com.tyb.birthdaySystem.bean.Info" id="infoMap">
+		<id property="infoId" column="info_id" />
+		<result property="infoName" column="info_name" />
+		<result property="infoSex" column="info_sex" />
+		<result property="infoBirthday" column="info_birthday" />
+		<result property="infoCalendar" column="info_calendar" />
+		<result property="infoPhoto" column="info_photo" />
+		<result property="infoRelation" column="info_relation" />
+		<result property="infoGid" column="info_gid" />
+		<result property="infoFid" column="info_fid" />
+		<result property="isDel" column="isDel" />
+		<result property="infoDes" column="info_des" />
+	</resultMap>
+
 	<!-- 查询（根据主键ID查询） -->
-	<select id="selectByPrimaryKey" resultType="info" parameterType="java.lang.String">
+	<select id="selectByPrimaryKey" resultMap="infoMap" parameterType="java.lang.String">
 		 SELECT
 		 <include refid="Base_Column_List" />
 		 FROM bs_info
@@ -23,7 +37,7 @@
 	</delete>
 
 	<!-- 添加 -->
-	<insert id="insert" parameterType="info">
+	<insert id="insert" parameterType="com.tyb.birthdaySystem.bean.Info">
 		 INSERT INTO bs_info
  		(info_id,info_name,info_sex,info_birthday,info_calendar,info_photo,info_relation,info_gid,info_fid,isDel,info_des) 
 		 VALUES 
@@ -31,7 +45,7 @@
 	</insert>
 
 	<!-- 添加 （匹配有值的字段）-->
-	<insert id="insertSelective" parameterType="info">
+	<insert id="insertSelective" parameterType="com.tyb.birthdaySystem.bean.Info">
 		 INSERT INTO bs_info
 		 <trim prefix="(" suffix=")" suffixOverrides="," >
 			<if test="infoId != null">
@@ -107,7 +121,7 @@
 	</insert>
 
 	<!-- 修 改-->
-	<update id="updateByPrimaryKeySelective" parameterType="info">
+	<update id="updateByPrimaryKeySelective" parameterType="com.tyb.birthdaySystem.bean.Info">
 		 UPDATE bs_info
  		 <set> 
 			<if test="infoName != null">
@@ -146,7 +160,7 @@
 	</update>
 
 	<!-- 修 改-->
-	<update id="updateByPrimaryKey" parameterType="info">
+	<update id="updateByPrimaryKey" parameterType="com.tyb.birthdaySystem.bean.Info">
 		 UPDATE bs_info
 		 SET 
 			 info_name = #{infoName},

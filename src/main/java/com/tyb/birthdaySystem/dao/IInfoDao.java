@@ -17,14 +17,14 @@ public interface IInfoDao{
 	 * 查询（根据主键ID查询）
 	 * 
 	 **/
-	Info  selectByPrimaryKey ( @Param("id") Long id );
+	Info  selectByPrimaryKey ( @Param("infoId") Long id );
 
 	/**
 	 * 
 	 * 删除（根据主键ID删除）
 	 * 
 	 **/
-	int deleteByPrimaryKey ( @Param("id") Long id );
+	int deleteByPrimaryKey ( @Param("infoId") Long id );
 
 	/**
 	 * 

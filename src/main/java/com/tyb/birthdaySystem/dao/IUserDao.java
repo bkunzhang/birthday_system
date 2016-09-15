@@ -17,14 +17,14 @@ public interface IUserDao{
 	 * 查询（根据主键ID查询）
 	 * 
 	 **/
-	User  selectByPrimaryKey ( @Param("id") String id );
+	User  selectByPrimaryKey ( @Param("uId") String id );
 
 	/**
 	 * 
 	 * 删除（根据主键ID删除）
 	 * 
 	 **/
-	int deleteByPrimaryKey ( @Param("id") String id );
+	int deleteByPrimaryKey ( @Param("uId") String id );
 
 	/**
 	 * 

@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tyb.birthy_polaris.mapper.GroupMapper">
+<mapper namespace="com.tyb.birthdaySystem.dao.IGroupDao">
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		 id,	gr_name,	u_id,	isDel
+		 gr_id,	gr_name,	u_id,	isDel
 	</sql>
 
+	<resultMap type="com.tyb.birthdaySystem.bean.Group" id="groupMap">
+		<id property="grId" column="gr_id" />
+		<result property="grName" column="gr_name" />
+		<result property="uId" column="u_id" />
+		<result property="isDel" column="isDel" />
+	</resultMap>
+
 	<!-- 查询（根据主键ID查询） -->
-	<select id="selectByPrimaryKey" resultType="group" parameterType="java.lang.String">
+	<select id="selectByPrimaryKey" resultMap="groupMap" parameterType="java.lang.String">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM bs_group
+		 WHERE gr_id = #{grId}
+	</select>
+
+	<!-- 查询（根据主键ID查询,自定义Map -->
+	<select id="findGroupById" resultMap="groupMap" parameterType="java.lang.String">
 		 SELECT
 		 <include refid="Base_Column_List" />
 		 FROM bs_group
@@ -23,7 +38,7 @@
 	</delete>
 
 	<!-- 添加 -->
-	<insert id="insert" parameterType="group">
+	<insert id="insert" parameterType="com.tyb.birthdaySystem.bean.Group">
 		 INSERT INTO bs_group
  		(gr_id,gr_name,u_id,isDel) 
 		 VALUES 
@@ -31,7 +46,7 @@
 	</insert>
 
 	<!-- 添加 （匹配有值的字段）-->
-	<insert id="insertSelective" parameterType="group">
+	<insert id="insertSelective" parameterType="com.tyb.birthdaySystem.bean.Group">
 		 INSERT INTO bs_group
 		 <trim prefix="(" suffix=")" suffixOverrides="," >
 			<if test="grId != null">
@@ -65,7 +80,7 @@
 	</insert>
 
 	<!-- 修 改-->
-	<update id="updateByPrimaryKeySelective" parameterType="group">
+	<update id="updateByPrimaryKeySelective" parameterType="com.tyb.birthdaySystem.bean.Group">
 		 UPDATE bs_group
  		 <set> 
 			<if test="grName != null">
@@ -83,7 +98,7 @@
 	</update>
 
 	<!-- 修 改-->
-	<update id="updateByPrimaryKey" parameterType="group">
+	<update id="updateByPrimaryKey" parameterType="com.tyb.birthdaySystem.bean.Group">
 		 UPDATE bs_group
 		 SET 
 			 gr_name = #{grName},

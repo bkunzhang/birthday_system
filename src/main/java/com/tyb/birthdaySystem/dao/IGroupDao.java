@@ -17,14 +17,14 @@ public interface IGroupDao{
 	 * 查询（根据主键ID查询）
 	 * 
 	 **/
-	Group  selectByPrimaryKey ( @Param("id") Long id );
+	Group  selectByPrimaryKey ( @Param("grId") Long id );
 
 	/**
 	 * 
 	 * 删除（根据主键ID删除）
 	 * 
 	 **/
-	int deleteByPrimaryKey ( @Param("id") Long id );
+	int deleteByPrimaryKey ( @Param("grId") Long id );
 
 	/**
 	 * 

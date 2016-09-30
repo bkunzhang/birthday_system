@@ -182,7 +182,31 @@
       <version>1.9</version>
     </dependency>
     
-    
+    <!-- Aspects风格支持 及 动态代理 -->
+    <dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjrt</artifactId>
+	    <version>1.7.2</version>
+	</dependency>
+    <dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.7.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>cglib</groupId>
+	    <artifactId>cglib-nodep</artifactId>
+	    <version>3.0</version>
+	</dependency>
+	
+	<!-- apache 反射获取私有方法的值 -->
+	<dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.6</version>
+	</dependency>
+	
+	
   </dependencies>
 	<build>
 		<finalName>polaris</finalName>

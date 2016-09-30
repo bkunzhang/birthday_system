@@ -2,7 +2,6 @@ package com.tyb.birthdaySystem.service.impl;
 
 import javax.annotation.Resource;
 
-import org.apache.catalina.ha.session.SessionMessage;
 import org.springframework.stereotype.Service;
 
 import com.tyb.birthdaySystem.bean.User;

@@ -15,6 +15,7 @@ import com.tyb.utils.LogCommonUtil;
 @Controller
 @RequestMapping(value = "/polaris/user")
 public class UserController extends BaseServlet{
+	
 	  @Resource
 	  private IUserService userService;
 	  

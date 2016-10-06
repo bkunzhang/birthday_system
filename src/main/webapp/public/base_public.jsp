@@ -14,8 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css"> -->
 
-<script src="<%=basePath %>js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/jquery-3.0.0.js"></script>
+<script src="<%=basePath %>js/jquery.js"></script>
 <script src="<%=basePath %>js/bootstrap/bootstrap.js"></script>
+
+
 <link rel="stylesheet" href="<%=basePath %>css/bootstrap/bootstrap.css">
 <link rel="stylesheet" href="<%=basePath %>css/bootstrap/bootstrap-theme.css">
-<link rel="stylesheet" href="<%=basePath %>css/style.css">
+

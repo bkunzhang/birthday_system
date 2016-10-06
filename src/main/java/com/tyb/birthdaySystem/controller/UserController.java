@@ -13,13 +13,13 @@ import com.tyb.birthdaySystem.service.IUserService;
 import com.tyb.utils.LogCommonUtil;
 
 @Controller
-@RequestMapping(value = "/polaris/user")
+@RequestMapping(value = "/user")
 public class UserController extends BaseServlet{
 	
 	  @Resource
 	  private IUserService userService;
 	  
-	  @RequestMapping(value = "toIndex", method = {RequestMethod.POST, RequestMethod.GET})
+	  @RequestMapping(value = "toIndex.love", method = {RequestMethod.POST, RequestMethod.GET})
 	  public String toIndex(HttpServletRequest request,Model model){
 		  LogCommonUtil.INFO.info("进入登录请求"+this.getClass());
 			String id = request.getParameter("id");
@@ -29,12 +29,15 @@ public class UserController extends BaseServlet{
 		    return "/showUser";
 	  }
 	  
+	  @RequestMapping(value = "login.love")
 	  public String login(HttpServletRequest request,User user){
 		  LogCommonUtil.INFO.info("进入登录请求");
-		  if(1==userService.loginUser(user)){
+		  User userS = userService.loginUser(user);
+		  if(userS!=null){
+			  request.setAttribute("nickName",userS.getUNick());
 			  return "/main";
 		  }
-		  return "";
+		  return "redirect:/pages/userLogin.jsp";
 	  }
 
 }

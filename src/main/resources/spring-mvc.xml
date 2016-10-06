@@ -57,6 +57,6 @@
         <property name="maxInMemorySize" value="40960" />  
     </bean> 
 
-	<!-- aop切入 -->
+	<!-- aop切入,代理之后 实现类都会改为poxy** -->
 	<aop:aspectj-autoproxy/>
 </beans>

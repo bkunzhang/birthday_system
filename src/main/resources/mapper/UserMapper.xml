@@ -26,6 +26,14 @@
 		 FROM bs_user
 		 WHERE u_id = #{uId}
 	</select>
+	
+	<!-- 查询（根据用户名查询） -->
+	<select id="findUserByName" resultMap="userMap" parameterType="com.tyb.birthdaySystem.bean.User">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM bs_user
+		 WHERE u_name = #{uName}
+	</select>
 
 	<!--删除：根据主键ID删除-->
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">

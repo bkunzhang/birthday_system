@@ -5,15 +5,15 @@ jQuery(document).ready(function() {
 	var date = mydate.getSeconds();
 	if(date<10){
 
-		$.backstretch("../imgs/bg1.jpg");
+		$.backstretch("./imgs/bg1.jpg");
 	}
 	else if(date>=10&&date<=30){
 
-		$.backstretch("../imgs/bg2.jpg");
+		$.backstretch("./imgs/bg2.jpg");
 	}
 	else if(date>30){
 
-		$.backstretch("../imgs/bg4.jpg");
+		$.backstretch("./imgs/bg4.jpg");
 	}
     /*
         Fullscreen background

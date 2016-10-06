@@ -2,6 +2,7 @@ package com.tyb.birthdaySystem.service.impl;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.tyb.birthdaySystem.bean.User;
@@ -18,11 +19,22 @@ public class UserServiceImpl implements IUserService{
 	public User getUserById(String userId) {
 		return userDao.selectByPrimaryKey(userId);
 	}
-
+	
+	/**
+	 * 登录
+	 */
 	@Override
-	public int loginUser(User user) {
+	public User loginUser(User user) {
 		LogCommonUtil.INFO.info("登录中.....");
-		return userDao.insert(user);
+		User userS =userDao.findUserByName(user);
+		if(userS!=null&&StringUtils.isNotEmpty(userS.getUPassword())){
+			if(user.getUPassword().equals(userS.getUPassword())){
+				return userS;
+			}
+			return null;
+		}
+		
+		return null;
 	}
 
 	@Override
@@ -33,8 +45,7 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public int registerUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.insert(user);
 	}
 
 	@Override

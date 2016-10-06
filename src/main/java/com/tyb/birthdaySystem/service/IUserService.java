@@ -9,7 +9,7 @@ import com.tyb.birthdaySystem.bean.User;
 public interface IUserService {
 	public User getUserById(String userId);
 	//登录
-	public int loginUser(User user);
+	public User loginUser(User user);
 	//注销
 	public int logoutUser(User user);
 	//注册

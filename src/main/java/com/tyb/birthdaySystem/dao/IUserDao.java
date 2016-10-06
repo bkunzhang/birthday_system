@@ -53,5 +53,12 @@ public interface IUserDao{
 	 * 
 	 **/
 	int updateByPrimaryKey ( User record );
+	
+	/**
+	 * 根据用户名查询
+	 * @param user
+	 * @return
+	 */
+	User findUserByName(User user);
 
 }

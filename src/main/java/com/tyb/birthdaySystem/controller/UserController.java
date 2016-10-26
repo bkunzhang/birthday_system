@@ -32,12 +32,20 @@ public class UserController extends BaseServlet{
 	  @RequestMapping(value = "login.love")
 	  public String login(HttpServletRequest request,User user){
 		  LogCommonUtil.INFO.info("进入登录请求");
-		  User userS = userService.loginUser(user);
-		  if(userS!=null){
-			  request.setAttribute("nickName",userS.getUNick());
-			  return "/main";
+		  if(isValidate(request)){
+			  User userS = userService.loginUser(user);
+			  if(userS!=null){
+				  request.setAttribute("nickName",userS.getUNick());
+				  return "/main";
+			  }
 		  }
+		  else{
+			  System.err.println("重复提交");
+		  }
+		 
 		  return "redirect:/pages/userLogin.jsp";
 	  }
+
+
 
 }

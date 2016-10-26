@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="form-bottom" >
-                    <form action="user/login.love" class="form-horizontal login-form" role="form" method="post" >
+                    <form action="user/login.love" class="form-horizontal login-form" role="form" method="post" id="mainForm" name="mainForm">
                         <div class="form-group">
                             <!-- <label for="name" class="col-sm-2 control-label">账 号</label> -->
                             <div class="col-sm-12 ">
@@ -76,6 +76,19 @@
     </div>
     </div>
 <script type="text/javascript" src="<%=basePath %>js/scripts.js"></script>
-
+<script type="text/javascript">
+	$(function(){
+		creatToken('mainForm');
+	});
+	function creatToken(formId){
+		$('#'+formId).append('<input id="polarisToken" name="polarisToken" type="hidden"/>');
+		$('#'+formId).find('input[name="polarisToken"]').val(callId());
+	}
+	function callId(){
+		var random = Math.floor(Math.random() * 10001);
+	  	var id = (random + "_" + new Date().getTime()).toString();
+	  	return id;
+	}
+</script>
 </body>
 </html>

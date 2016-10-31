@@ -15,6 +15,12 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+/**
+ * 日志切入
+ * 记录每个方法请求的参数、响应及损耗时间
+ * @author 北辰不落雪
+ *
+ */
 @Component
 @Aspect
 public class LogIntercptor {

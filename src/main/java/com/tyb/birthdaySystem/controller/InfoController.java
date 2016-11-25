@@ -21,6 +21,6 @@ public class InfoController extends BaseServlet{
 	private IInfoService infoService;
 	public String getInfos(HttpServletRequest request, Info info){
 		infoService.getInfo(info);	
-		return "";
+		return ""; 
 	}
 }

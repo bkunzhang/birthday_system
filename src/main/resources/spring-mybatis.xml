@@ -10,7 +10,11 @@
   http://www.springframework.org/schema/mvc  
   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
   
-<!-- <context:component-scan base-package="com.tyb.birthdaySystem" /> -->
+  <context:component-scan base-package="com.tyb">  
+    <!-- 将Controller的注解排除掉，在spring-mvc.xml单独扫描Controller注解 -->
+	<context:exclude-filter expression="org.springframework.stereotype.Controller"
+		type="annotation" />
+  </context:component-scan>
 
   <!-- 引入配置文件 -->
   <bean id="propertyConfigurer"
@@ -21,7 +25,7 @@
   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
     destroy-method="close">
     <property name="driverClassName" value="${driver}" />
-    <property name="url" value="${wifiUrl}" />
+    <property name="url" value="${url}" />
     <property name="username" value="${username}" />
     <property name="password" value="${password}" />
     <!-- 初始化连接大小 -->

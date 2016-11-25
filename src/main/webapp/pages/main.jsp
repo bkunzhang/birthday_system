@@ -52,7 +52,7 @@
 
         <div id="left" class="left">
             <ul class="nav nav-pills nav-stacked">
-                <li ><a onclick="setSrc('https://www.baidu.com/')" href="javascript:;" data-toggle="tab">个人信息</a></li>
+                <li ><a onclick="setSrc('<%=basePath %>user/toIndex.love')" href="javascript:;" data-toggle="tab">个人信息</a></li>
                 <li><a onclick="setSrc('https://www.taobao.com/')" href="javascript:;" data-toggle="tab" >基友管理</a></li>
                 <li><a onclick="setSrc('http://passionate.herokuapp.com/')" href="javascript:;" data-toggle="tab">群组管理</a></li>
             </ul>

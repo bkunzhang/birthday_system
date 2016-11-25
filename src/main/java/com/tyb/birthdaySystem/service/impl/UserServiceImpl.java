@@ -1,6 +1,7 @@
 package com.tyb.birthdaySystem.service.impl;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
@@ -25,15 +26,13 @@ public class UserServiceImpl implements IUserService{
 	 */
 	@Override
 	public User loginUser(User user) {
-		LogCommonUtil.INFO.info("登录中.....");
+		LogCommonUtil.INFO.info("登录服务");
 		User userS =userDao.findUserByName(user);
 		if(userS!=null&&StringUtils.isNotEmpty(userS.getUPassword())){
-			if(user.getUPassword().equals(userS.getUPassword())){
+			if(user.getUPassword().equals(userS.getUPassword()))
 				return userS;
-			}
 			return null;
 		}
-		
 		return null;
 	}
 

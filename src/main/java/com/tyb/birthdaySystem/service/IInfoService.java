@@ -1,5 +1,7 @@
 package com.tyb.birthdaySystem.service;
 
+import java.util.List;
+
 import com.tyb.birthdaySystem.bean.Info;
 
 /**
@@ -8,12 +10,12 @@ import com.tyb.birthdaySystem.bean.Info;
  *
  */
 public interface IInfoService {
-	//获取分组信息
-	public Info getInfo(Info group);
-	//添加分组
-	public int addInfo(Info group);
-	//删除分组
-	public int delInfo(Info group);
-	//更新分组
-	public int upInfo(Info group);
+	//获取好友信息
+	public List<Info> getInfo(Info info);
+	//添加好友信息
+	public int addInfo(Info info);
+	//删除好友信息
+	public int delInfo(Info info);
+	//更新好友信息
+	public int upInfo(Info info);
 }

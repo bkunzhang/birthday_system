@@ -1,19 +1,22 @@
 
+
 jQuery(document).ready(function() {
+	var location = (window.location+'').split('/'); 
+	var basePath = location[0]+'//'+location[2]+'/'+location[3]; 
 	var mydate = new Date();
 	//获取当前秒数(0-59)，设置不同的背景图片
 	var date = mydate.getSeconds();
 	if(date<10){
 
-		$.backstretch("./imgs/bg1.jpg");
+		$.backstretch(basePath+"/imgs/bg1.jpg");
 	}
 	else if(date>=10&&date<=30){
 
-		$.backstretch("./imgs/bg2.jpg");
+		$.backstretch(basePath+"/imgs/bg2.jpg");
 	}
 	else if(date>30){
 
-		$.backstretch("./imgs/bg4.jpg");
+		$.backstretch(basePath+"/imgs/bg4.jpg");
 	}
     /*
         Fullscreen background

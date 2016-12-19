@@ -79,6 +79,7 @@ public class LogIntercptor {
 		return rs;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private String print(Object o,StringBuffer sb,int level)
 	{
 		level++;

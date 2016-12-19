@@ -25,7 +25,7 @@ public class UserController extends BaseServlet{
 	  private IUserService userService;
 	  
 	  /**
-	   * 跳转首页
+	   * 跳转首页(个人信息)
 	   * @param request
 	   * @param model
 	   * @param httpSession
@@ -36,7 +36,7 @@ public class UserController extends BaseServlet{
 		  LogCommonUtil.INFO.info("进入登录请求"+this.getClass());
 		  try{
 			  if(null==httpSession.getAttribute("id")){
-				  return "/public/userLogin";
+				  return "/pages/userLogin";
 			  }
 			  User user = userService.getUserById(httpSession.getAttribute("id").toString());
 			  model.addAttribute("bean", user);
@@ -56,13 +56,19 @@ public class UserController extends BaseServlet{
 	   * @return
 	   */
 	  @RequestMapping(value = "login.love")
-	  public String login(HttpServletRequest request,User user,HttpSession httpSession){
+	  public String login(HttpServletRequest request,User user,HttpSession httpSession, Model model){
 		  LogCommonUtil.INFO.info("进入登录请求");
+		  String userSession =  (String) httpSession.getAttribute("id");
+		  if(userSession!=null){
+			  request.setAttribute("nickName",userService.getUserById(userSession)!=null?userService.getUserById(userSession).getUNick():"黑户");
+			  return "/pages/main";
+		  }
+		  //检测是否存在密码
 		  try {
 			user.setUPassword(Encryption.Encoder(user.getUPassword(), Encryption.algorithm_SHA256));
-		  } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-			 request.setAttribute("message", "程序异常，请联系开发人员");
-			 return "/public/error";
+		  } catch (NoSuchAlgorithmException | UnsupportedEncodingException | NullPointerException e) {
+			 request.setAttribute("message", "密码出错了");
+			 return "/pages/userLogin";
 		  }
 		  
 		  //防重复提交
@@ -79,6 +85,7 @@ public class UserController extends BaseServlet{
 			  request.setAttribute("message", "慢一点，仔细观察世界");
 			  return "/public/error";
 		  }
+		  
 	  }
 	  
 	  /**

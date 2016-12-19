@@ -11,6 +11,7 @@ import sun.misc.BASE64Encoder;
  * @author 北辰不落雪
  *
  */
+@SuppressWarnings("restriction")
 public class Encryption {
 	
 	 /** 加盐参数  */
@@ -28,7 +29,7 @@ public class Encryption {
 	  * @throws NoSuchAlgorithmException
 	  * @throws UnsupportedEncodingException
 	  */
-	 public static String Encoder(String str, String algorithm) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public static String Encoder(String str, String algorithm) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		if(str == null){
         	throw new NullPointerException();
         }
@@ -49,6 +50,9 @@ public class Encryption {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

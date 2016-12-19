@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@include file="/public/base_public.jsp" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +15,22 @@
     <meta name="renderer" content="webkit">
     <title>${nickName } 的空间 </title>
 
-    <!--左侧导航插件，和h5的nav冲突-->
-    <!--<link rel="stylesheet" href="../css/navigation/responsive-nav.css">-->
-
+    <link rel="stylesheet" href="<%=basePath %>css/response/testCss.css">
 
 </head>
 <body class="bg" >
-  
+	 <c:forEach var="bean" items="${data }">
+	 	<div></div>
+		<figure class="test3" ><!--图片容器-->
+		<img src="<%=basePath %>imgs/${bean.infoPhoto }" style="width: 320px;height:640px;"/>
+		<figcaption>
+			<h2>斜切动画</h2>
+		    <p>${bean.infoName }</p>
+		    <p>${bean.infoBirthday }</p>
+		    <p>${bean.infoRelation }</p>
+		</figcaption>
+		</figure>
+     </c:forEach>
+     <div style="margin-bottom: 10px;">&nbsp;</div>
 </body>
 </html>

@@ -53,15 +53,15 @@
         <div id="left" class="left">
             <ul class="nav nav-pills nav-stacked">
                 <li ><a onclick="setSrc('<%=basePath %>user/toIndex.love')" href="javascript:;" data-toggle="tab">个人信息</a></li>
-                <li><a onclick="setSrc('https://www.taobao.com/')" href="javascript:;" data-toggle="tab" >基友管理</a></li>
+                <li><a onclick="setSrc('<%=basePath %>info/toIndex.love')" href="javascript:;" data-toggle="tab" >基友管理</a></li>
                 <li><a onclick="setSrc('http://passionate.herokuapp.com/')" href="javascript:;" data-toggle="tab">群组管理</a></li>
             </ul>
         </div>
 
         <div id="right" style="height: 100%">
             <div style="display: none">右上部分</div>
-            <div id="main" name="main" class="main">
-                <iframe id="iframe_content" scrolling="no" class="embed-responsive-item" src="http://www.baidu.com" style="width: 100%;height: 100%"></iframe>
+            <div id="main" name="main" class="main" style="height: 100%;">
+                <iframe id="iframe_content" scrolling="no" class="embed-responsive-item" src="<%=basePath %>user/toIndex.love" style="width: 100%;height: 100%"></iframe>
             </div>
         </div>
 
@@ -69,7 +69,7 @@
 
     <!--右下角突出层-->
     <div style="background-color: #204d74; z-index: 11;" >
-        <div class="relation" draggable="true" onclick="javascript:alert('sb?');">
+        <div class="relation" draggable="true" onclick="javascript:alert('邮箱787225863@qq.com');">
             <!--<ul>
                 <li class="" >1</li>
                 <li class="" >2</li>

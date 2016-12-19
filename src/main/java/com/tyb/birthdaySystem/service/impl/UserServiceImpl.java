@@ -1,7 +1,6 @@
 package com.tyb.birthdaySystem.service.impl;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;

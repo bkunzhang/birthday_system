@@ -92,7 +92,7 @@ html, body{
 }
 
 
-/*响应式基本原理，（这里只是写的详细点，实际content已700px为分界线）*/
+/*响应式基本原理，（这里只是写的详细点，实际content以700px为分界线）*/
 @media screen and (max-width:700px){  /*小于700px时*/
     .content{top: 130px;}
 

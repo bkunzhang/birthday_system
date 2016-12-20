@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tyb.birthdaySystem.bean.Info;
 import com.tyb.birthdaySystem.service.IInfoService;
+import com.tyb.utils.LogCommonUtil;
 
 /**
  * 好友信息管理
@@ -25,10 +26,11 @@ public class InfoController extends BaseServlet{
 	
 	@RequestMapping(value = "/toIndex.love", method = {RequestMethod.POST, RequestMethod.GET})
 	public String getInfos(HttpServletRequest request, Info info){
+		LogCommonUtil.INFO.info("进入亲友管理"+this.getClass());
 		String id = request.getSession().getAttribute("id") + "";
 		info.setInfoFid(id);
 		List<Info> data = infoService.getInfo(info);	
 		request.setAttribute("data", data);
-		return "/pages/birthdayManage/main_birthday"; 
+		return "/pages/birthdayManage/main_birthday_simple"; 
 	}
 }

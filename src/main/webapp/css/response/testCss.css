@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+/* 亲友管理 */
 body,figure,figcaption,img,h2,p{margin:0; padding:0;}
 
 figure{ position:relative; overflow:hidden; width:33%; height:350px; float:left;} /* 父级容器设置为相对的,子容器设置为绝对的；overflow超出部分隐藏掉-*/

@@ -15,23 +15,15 @@
     <meta name="renderer" content="webkit">
     <title>${nickName } 的空间 </title>
 
-    <link rel="stylesheet" href="<%=basePath %>css/response/testCss.css">
 
 </head>
 <body class="bg" >
-	<a href="<%=basePath %>pages/birthdayManage/main_birthday_simple.jsp">ceshi </a>
-	 <c:forEach var="bean" items="${data }">
-	 	<div></div>
-		<figure class="test3" ><!--图片容器-->
-		<img src="<%=basePath %>imgs/${bean.infoPhoto }" style="width: 320px;height:640px;"/>
-		<figcaption>
-			<h2>斜切动画</h2>
-		    <p>${bean.infoName }</p>
-		    <p>${bean.infoBirthday }</p>
-		    <p>${bean.infoRelation }</p>
-		</figcaption>
-		</figure>
-     </c:forEach>
-     <div style="margin-bottom: 10px;">&nbsp;</div>
+	<a href="javascript:void(0);" class="list-group-item active">
+		亲友管理
+	</a>
+	<c:forEach var="bean" items="${data }">
+		<a href="#" class="list-group-item">${bean.infoName }---${bean.infoBirthday }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    </c:forEach>
+    
 </body>
 </html>

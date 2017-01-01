@@ -1,6 +1,8 @@
 package com.tyb.birthdaySystem.dao;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -64,5 +66,12 @@ public interface IInfoDao{
 	 * 
 	 **/
 	List<Info> getByUserId (@Param("infoFid") String userId, @Param("infoGid") String groupId);
-
+	
+	/**
+	 * 
+	 * 根据日期获取所有用户的亲友
+	 * 
+	 **/
+	List<Map<String, Object>> getInfoByDate (@Param("infoBirthday") String date);
+	
 }

@@ -1,5 +1,6 @@
 package com.tyb.birthdaySystem.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -33,6 +34,12 @@ public class InfoServiceImpl implements IInfoService{
 	@Override
 	public int upInfo(Info info) {
 		return infoDao.updateByPrimaryKey(info);
+	}
+
+	@Override
+	public int getInfoByDate(Date date) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

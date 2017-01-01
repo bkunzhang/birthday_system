@@ -185,7 +185,14 @@
 		 <if test="infoGid != null">
 		 	 and  info_gid = #{infoGid}
 		 </if>
-		
 	</select>
 	
+	<!-- 根据日期获取所有用户的亲友 -->
+	<select id="getInfoByDate" resultType="java.util.HashMap" parameterType="java.lang.String">
+		 SELECT
+		 info_name, u_email
+		 FROM bs_info i, bs_user u
+		 WHERE  info_birthday = #{infoBirthday}  and i.isDel = "00"  and u.isDel = "00"
+		 and i.info_fid = u.u_id
+	</select>
 </mapper>

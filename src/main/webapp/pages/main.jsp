@@ -69,18 +69,36 @@
 
     <!--右下角突出层-->
     <div style="background-color: #204d74; z-index: 11;" >
-        <div class="relation" draggable="true" onclick="javascript:alert('邮箱787225863@qq.com');">
-            <!--<ul>
-                <li class="" >1</li>
-                <li class="" >2</li>
-                <li class="" >3</li>
-            </ul>-->
-
+        <div class="relation" draggable="true" onclick="javascript:$('#myModal').modal('show');">
+				
         </div>
         <!--H5的锚点要在a标签里面设置text值,null值也可以-->
         <div class="relation2" draggable="true" onclick="javascript:location.href='#tips'"></div>
     </div>
 
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 50px">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					联系我
+				</h4>
+			</div>
+			<div class="modal-body">
+				如果您有任何疑问可以发送信息到 我的私人邮箱 787225863@qq.com 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">
+					关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 
 <script type="text/javascript" src="<%=basePath %>js/navigation/responsive-nav.js"></script>
 <script style="text/javascript">

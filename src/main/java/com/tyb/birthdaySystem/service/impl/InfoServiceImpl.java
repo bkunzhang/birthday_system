@@ -42,4 +42,9 @@ public class InfoServiceImpl implements IInfoService{
 		return 0;
 	}
 
+	@Override
+	public Info getInfoById(String infoId) {
+		return infoDao.selectByPrimaryKey(infoId);
+	}
+
 }

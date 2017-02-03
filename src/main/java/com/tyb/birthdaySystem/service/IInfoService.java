@@ -22,5 +22,7 @@ public interface IInfoService {
 	
 	//按照日期获取所有亲友的信息
 	public int getInfoByDate(Date date);
+	//按照id获取亲友的信息
+	Info getInfoById(String infoId);
 		
 }

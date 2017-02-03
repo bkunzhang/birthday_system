@@ -19,10 +19,14 @@
 
 </head>
 <body class="bg" >
-	<a href="<%=basePath %>pages/birthdayManage/main_birthday_simple.jsp">ceshi </a>
+
+	<a href="javascript:void(0);" class="list-group-item active">
+		亲友管理
+		<button  class="btn btn-primary btn-lg" onclick="change();">切换</button>
+	</a>
 	 <c:forEach var="bean" items="${data }">
 	 	<div></div>
-		<figure class="test3" ><!--图片容器-->
+		<figure class="test3" style="overflow: auto;" ><!--图片容器-->
 		<img src="<%=basePath %>imgs/${bean.infoPhoto }" style="width: 320px;height:640px;"/>
 		<figcaption>
 			<h2>斜切动画</h2>
@@ -33,5 +37,11 @@
 		</figure>
      </c:forEach>
      <div style="margin-bottom: 10px;">&nbsp;</div>
+     
+     <script>
+		function change(){
+		 location.href = '<%=basePath %>info/toIndex.love';
+		}
+	</script>
 </body>
 </html>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.tyb.birthdaySystem.bean.User;
 import com.tyb.birthdaySystem.dao.IUserDao;
 import com.tyb.birthdaySystem.service.IUserService;
-import com.tyb.utils.LogCommonUtil;
+import com.tyb.util.LogCommonUtil;
 
 @Service("userService")
 public class UserServiceImpl implements IUserService{

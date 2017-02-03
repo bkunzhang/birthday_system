@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tyb.birthdaySystem.bean.User;
 import com.tyb.birthdaySystem.service.IUserService;
-import com.tyb.utils.Encryption;
-import com.tyb.utils.LogCommonUtil;
+import com.tyb.util.Encryption;
+import com.tyb.util.LogCommonUtil;
 
 @Controller
 @RequestMapping(value = "/user")

@@ -14,6 +14,10 @@ import sun.misc.BASE64Encoder;
 @SuppressWarnings("restriction")
 public class Encryption {
 	
+	private Encryption(){
+		
+	}
+	
 	 /** 加盐参数  */
 	 private final static String POLARIS = "polaris"; 
 	 

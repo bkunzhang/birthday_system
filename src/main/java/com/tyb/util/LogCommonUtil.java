@@ -11,6 +11,11 @@ import org.apache.commons.logging.LogFactory;
  * LogFactory来自common-logging包。如果用LogFactory.getLog，你可以用任何实现了通用日志接口的日志记录器替换log4j。
  */
 public class LogCommonUtil {
+	
+	private LogCommonUtil(){
+		
+	}
+	
 	/**
 	 * 调试级别（业务：仅仅用于调试，业务中不推荐使用）
 	 */

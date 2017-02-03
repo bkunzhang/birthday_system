@@ -11,6 +11,10 @@ import com.tyb.birthdaySystem.bean.User;
 public class HttpSessionManage {
 	private static HttpSession session;
 	
+	private HttpSessionManage(){
+		
+	}
+	
 	public static User getSessionUser(String sessionId){
 		if(null!=session.getAttribute(sessionId)){
 			return (User) session.getAttribute(sessionId);

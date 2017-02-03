@@ -1,4 +1,4 @@
-package com.tyb.utils;
+package com.tyb.util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -7,7 +7,8 @@ import org.apache.commons.logging.LogFactory;
  * 
  * <p>记录点：控制器，服务层	
  * @author 北辰不落雪
- *
+ * <P>PS: Logger来自log4j自己的包。如果用Logger.getLogger，需要一个log4j的jar包，用此方式你只能依靠log4j；
+ * LogFactory来自common-logging包。如果用LogFactory.getLog，你可以用任何实现了通用日志接口的日志记录器替换log4j。
  */
 public class LogCommonUtil {
 	/**

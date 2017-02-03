@@ -1,4 +1,4 @@
-package com.tyb.utils;
+package com.tyb.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

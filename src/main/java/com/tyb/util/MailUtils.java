@@ -1,6 +1,7 @@
-package com.tyb.utils;
+package com.tyb.util;
 
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.mail.Address;
@@ -12,9 +13,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.commons.logging.LogFactory;
+
+
 public class MailUtils {
 	static Logger logger =  Logger.getLogger(MailUtils.class.getName());
-	
+	private MailUtils(){}
 	/**
 	 * 邮件发送
 	 * @param acceptUser 邮件接收者
@@ -33,7 +37,7 @@ public class MailUtils {
             Session session = Session.getInstance(props, auth);
             //session.setDebug(true);//打印Debug信息
             MimeMessage message = new MimeMessage(session);
-            Address addressFrom = new InternetAddress(PopupAuthenticator.mailUser + "@qq.com", "北辰生日录提醒");//第一个参数为发送方电子邮箱地址；第二个参数为发送方邮箱地址的标签
+            Address addressFrom = new InternetAddress(PopupAuthenticator.mailUser + "@foxmail.com", "北辰生日录提醒");//第一个参数为发送方电子邮箱地址；第二个参数为发送方邮箱地址的标签
             Address addressTo = new InternetAddress(acceptUser, "主人");//第一个参数为接收方电子邮箱地址；第二个参数为接收方邮箱地址的标签
             message.setSubject(title);
             message.setText(content);
@@ -44,14 +48,14 @@ public class MailUtils {
             transport.connect("smtp.qq.com", PopupAuthenticator.mailUser, PopupAuthenticator.password);
             Transport.send(message);
             transport.close();
-            logger.info("发送成功");
+            LogCommonUtil.INFO.info("发送成功");
         } catch (Exception e) {
-        	logger.info("发送失败");
+        	LogCommonUtil.ERROR.error("发送失败"+e.getMessage());
             throw e;
         }
 	
 	}    public static void main(String[] args) throws Exception {
-		MailUtils.sendEmail("787225863@qq.com", "1213", "各种好礼");
+		MailUtils.sendEmail("787225863@qq.com", "1213", "此邮件为北辰生日系统测试发送");
 	}
 }
 
@@ -64,7 +68,7 @@ class PopupAuthenticator extends Authenticator {
     public static String mailUser; //发送方邮箱'@'符号前的内容:787225863@qq.com
     public static String password; //成功开启IMAP/SMTP服务，在第三方客户端登录时，腾讯提供的密码。注意不是邮箱密码
     static{
-    	mailUser = "787225863";
+    	mailUser = "polarisnosnow";
     	password = "slokciwlguhobbie";
     }
     

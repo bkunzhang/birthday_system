@@ -1,4 +1,4 @@
-package com.tyb.utils;
+package com.tyb.util;
 
 import java.util.Collection;
 import java.util.Iterator;

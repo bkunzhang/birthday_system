@@ -1,4 +1,4 @@
-package com.tyb.QuartzJob;
+package com.tyb.quartzJob;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -11,8 +11,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.tyb.birthdaySystem.dao.IInfoDao;
-import com.tyb.utils.LogCommonUtil;
-import com.tyb.utils.MailUtils;
+import com.tyb.util.LogCommonUtil;
+import com.tyb.util.MailUtils;
 
 /**
  * 任务调度--邮件提醒
@@ -36,7 +36,7 @@ public class EmailQz {
 				+ calendar.get(Calendar.DATE);
 		LogCommonUtil.INFO.info("进入"+date+"号的Quartz每日任务");
 		String title = date+"生日提醒";
-		String suffix = "今天生日了，记得送他（她）一个问候哦O(∩_∩)O";
+		String suffix = "今天生日了，记得送他（她）一个祝福哦O(∩_∩)O";
 		
 		try {
 			List<Map<String, Object>> datas = dao.getInfoByDate(date);

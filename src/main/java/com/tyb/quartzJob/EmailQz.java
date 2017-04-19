@@ -1,14 +1,12 @@
 package com.tyb.quartzJob;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import com.tyb.birthdaySystem.dao.IInfoDao;
 import com.tyb.util.LogCommonUtil;
@@ -34,7 +32,10 @@ public class EmailQz {
 		String date = calendar.get(Calendar.YEAR) + "-"
 				+ (calendar.get(Calendar.MONTH)+1) + "-" //月份从0开始，需要加一
 				+ calendar.get(Calendar.DATE);
-		LogCommonUtil.INFO.info("进入"+date+"号的Quartz每日任务");
+		
+		SimpleDateFormat   sDateFormat   =   new   SimpleDateFormat("yyyy-MM-dd   hh:mm:ss");   
+		LogCommonUtil.INFO.info(sDateFormat.format(new Date())+" 进入"+date+"号的Quartz每日任务");
+		
 		String title = date+"生日提醒";
 		String suffix = "今天生日了，记得送他（她）一个祝福哦O(∩_∩)O";
 		

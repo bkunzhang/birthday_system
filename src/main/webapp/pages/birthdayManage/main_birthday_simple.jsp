@@ -17,7 +17,6 @@
     <title>${nickName } 的空间 </title>
 	<script type="text/javascript">
 		function detail(infoId){
-			debugger;
 			$.ajax({ 
 				type: 'GET',
 				url: '<%=basePath %>info/getInfo.love',
@@ -26,10 +25,8 @@
 				async : false,
 		        cache : false,
 				success: function(data){
-					debugger;
 					$('#infoName').val(data.infoName);
 					var birthday = new Date(data.infoBirthday);
-					alert(birthday);
 					$('#infoBirthday').attr('placeholder','<fmt:formatDate value="${birthday}" pattern="yyyy-MM-dd"/>');
 					if(data.infoSex =='女'){
 						$('#infoSex').value('<option value="女">女</option><option value="男">男</option>');
@@ -53,6 +50,7 @@
 <body>
 	<a href="javascript:void(0);" class="list-group-item active">
 		亲友管理
+		<button  class="btn btn-primary btn-lg" onclick="add();">添加</button>
 		<button  class="btn btn-primary btn-lg" onclick="change();">切换</button>
 	</a>
 	<c:forEach var="bean" items="${data }">
@@ -115,6 +113,11 @@
 	<script>
 		function change(){
 		 location.href = '<%=basePath %>info/InfosPhoto.love';
+		}
+		/*-- 打开添加页面  */
+		function add(){
+			$('#form').attr('action','<%=basePath %>info/saveInfo.love');
+			$('#myModal').modal('show');
 		}
 	</script>
 </body>

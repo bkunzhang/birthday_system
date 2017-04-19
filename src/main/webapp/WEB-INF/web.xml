@@ -5,15 +5,35 @@
   version="3.0">
   <display-name>Archetype Created Web Application</display-name>
   
+<!-- 加载顺序(和位置无关)：context-param -> listener -> filter -> servlet -->
+ 
   <!-- Spring（核心及QZ任务调度）、mybatis的配置文件 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
 	    classpath:spring-mybatis.xml,
-	    classpath:quartz-config.xml
+	    classpath:qz/quartz-config.xml 
     </param-value>
-    
   </context-param>
+  
+    <!-- 日志文件 -->
+  <context-param>
+	   <param-name>log4jConfigLocation</param-name>
+	   <param-value>classpath:log4j.properties</param-value>
+  </context-param>
+  
+    <!-- Spring监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+  <!-- 防止Spring内存溢出监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+  </listener>
+  
   <!-- 编码过滤器 -->
   <filter>
     <filter-name>encodingFilter</filter-name>
@@ -28,14 +48,6 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- Spring监听器 -->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <!-- 防止Spring内存溢出监听器 -->
-  <listener>
-    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
-  </listener>
 
   <!-- Spring MVC servlet -->
   <servlet>

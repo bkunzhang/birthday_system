@@ -33,9 +33,10 @@ public class InfoController extends BaseServlet{
 	 * @return
 	 */
 	@RequestMapping(value = "/toIndex.love", method = {RequestMethod.POST, RequestMethod.GET})
-	public String getInfos(HttpServletRequest request, Info info){
+	public String getInfos(HttpServletRequest request){
 		LogCommonUtil.INFO.info("进入亲友管理"+this.getClass());
 		String id = request.getSession().getAttribute("id") + "";
+		Info info = new Info();
 		info.setInfoFid(id);
 		List<Info> data = infoService.getInfo(info);
 		request.setAttribute("data", data);
@@ -57,7 +58,9 @@ public class InfoController extends BaseServlet{
 		request.setAttribute("data", data);
 		return "/pages/birthdayManage/main_birthday"; 
 	}
-	
+	/**
+	 * 获取亲友详细信息
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/getInfo.love", method = {RequestMethod.POST, RequestMethod.GET})
 	public Object getInfoById(HttpServletRequest request, String infoId){
@@ -66,11 +69,32 @@ public class InfoController extends BaseServlet{
 		return JSON.toJSON(info);
 	}
 	
+	/**
+	 * 更新亲友信息
+	 * @param request
+	 * @param info
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/updateInfo.love", method = {RequestMethod.POST, RequestMethod.GET})
 	public String updateInfoById(HttpServletRequest request, Info info){
 		String id = request.getSession().getAttribute("id") + "";
 		LogCommonUtil.INFO.info(id+"更新亲友信息"+this.getClass());
 		return ""; 
+	}
+	
+	/**
+	 * 添加亲友信息
+	 * @param request
+	 * @param info
+	 * @return
+	 */
+	@RequestMapping(value = "/saveInfo.love", method = {RequestMethod.POST, RequestMethod.GET})
+	public String saveInfo(HttpServletRequest request, Info info){
+		LogCommonUtil.INFO.info("添加亲友信息"+this.getClass());
+		String id = request.getSession().getAttribute("id") + "";
+		info.setInfoFid(id);
+		infoService.addInfo(info);
+		return this.getInfos(request);
 	}
 }

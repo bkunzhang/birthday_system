@@ -1,4 +1,4 @@
-package com.tyb.utils;
+package com.tyb.util;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -79,6 +79,7 @@ public class LogIntercptor {
 		return rs;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private String print(Object o,StringBuffer sb,int level)
 	{
 		level++;

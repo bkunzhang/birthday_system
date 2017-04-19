@@ -1,0 +1,107 @@
+*{
+    padding:0px;
+    margin:0px;
+    transition:all 0.35s;
+}
+
+html, body{
+    height: 100%;
+
+}
+/*在nav中可以通过class:navbar-fixed-top来设定，此处自己设定并解决ie6兼容问题*/
+.top{
+    position: fixed;
+    top: 1px;
+    width: 100%;
+    z-index: 9999;
+    /*ie6绝对定位兼容解决*/
+    _position:absolute;/* 把导航栏位置定义为绝对位置 关键*/
+    _top:expression(documentElement.scrollTop + "px"); /* 把导航栏位置放在浏览器垂直滚动条的顶端 关键 */
+}
+.content{
+    position: relative;
+    height: 100%;
+}
+.right{
+    height: 100%;
+}
+.left{
+    position: absolute;
+    width: 200px;
+    background-color: #222222;
+}
+@media screen and (max-width:700px){  /*小于700px时*/
+    .left{
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.main{
+    float: left;
+    margin-left: 205px;
+    background-color: #FFFFFF;
+    width: 70%;
+    height: 100%;
+}
+@media screen and (max-width:700px){  /*小于700px时*/
+    .main{
+        margin-left: 2px;
+        margin-top: 130px;
+        float: left;
+        background-color: #FFFFFF;
+        width: 100%;
+    }
+}
+
+.relation{
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    width: 3.5rem;
+    height: 3rem;
+    z-index: 10;
+    background-color: #00aecd;
+    transition: bottom 3s;
+    background-image: url("../imgs/icon3.png");
+    border-radius:10px; /* 圆角 */
+    cursor: pointer;
+}
+
+.relation2{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 3.5rem;
+    height: 3rem;
+    z-index: 10;
+    background-color: #00aecd;
+    transition: bottom 3s;
+    /*background-image: url("../imgs/icon3.png");*/
+    border-radius:10px; /* 圆角 */
+    cursor: pointer;
+}
+
+.relation:hover{
+   /* transform:scale(1.05,1.05);*/
+    background-color: #204d74;
+}
+.relation2:hover{
+    /* transform:scale(1.05,1.05);*/
+    background-color: #204d74;
+}
+
+
+/*响应式基本原理，（这里只是写的详细点，实际content以700px为分界线）*/
+@media screen and (max-width:700px){  /*小于700px时*/
+    .content{top: 130px;}
+
+}
+@media screen and (min-width:701px) and (max-width:1000px){  /*大于601px小于1000px时*/
+    .content{top: 50px;margin-left: 100px ;}
+    .left{height:500px;}
+}
+@media screen and (min-width:1001px){  /*大于1001px时*/
+    .content{top: 50px;margin-left: 100px ;}
+    .left{height:500px;}
+}

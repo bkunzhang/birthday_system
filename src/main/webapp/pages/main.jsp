@@ -52,16 +52,16 @@
 
         <div id="left" class="left">
             <ul class="nav nav-pills nav-stacked">
-                <li ><a onclick="setSrc('https://www.baidu.com/')" href="javascript:;" data-toggle="tab">个人信息</a></li>
-                <li><a onclick="setSrc('https://www.taobao.com/')" href="javascript:;" data-toggle="tab" >基友管理</a></li>
+                <li ><a onclick="setSrc('<%=basePath %>user/toIndex.love')" href="javascript:;" data-toggle="tab">个人信息</a></li>
+                <li><a onclick="setSrc('<%=basePath %>info/toIndex.love')" href="javascript:;" data-toggle="tab" >基友管理</a></li>
                 <li><a onclick="setSrc('http://passionate.herokuapp.com/')" href="javascript:;" data-toggle="tab">群组管理</a></li>
             </ul>
         </div>
 
         <div id="right" style="height: 100%">
             <div style="display: none">右上部分</div>
-            <div id="main" name="main" class="main">
-                <iframe id="iframe_content" scrolling="no" class="embed-responsive-item" src="http://www.baidu.com" style="width: 100%;height: 100%"></iframe>
+            <div id="main" name="main" class="main" style="height: 100%;">
+                <iframe id="iframe_content" scrolling="no" class="embed-responsive-item" src="<%=basePath %>user/toIndex.love" style="width: 100%;height: 100%"></iframe>
             </div>
         </div>
 
@@ -69,18 +69,36 @@
 
     <!--右下角突出层-->
     <div style="background-color: #204d74; z-index: 11;" >
-        <div class="relation" draggable="true" onclick="javascript:alert('sb?');">
-            <!--<ul>
-                <li class="" >1</li>
-                <li class="" >2</li>
-                <li class="" >3</li>
-            </ul>-->
-
+        <div class="relation" draggable="true" onclick="javascript:$('#myModal').modal('show');">
+				
         </div>
         <!--H5的锚点要在a标签里面设置text值,null值也可以-->
         <div class="relation2" draggable="true" onclick="javascript:location.href='#tips'"></div>
     </div>
 
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 50px">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					联系我
+				</h4>
+			</div>
+			<div class="modal-body">
+				如果您有任何疑问可以发送信息到 我的私人邮箱 787225863@qq.com 
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">
+					关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 
 <script type="text/javascript" src="<%=basePath %>js/navigation/responsive-nav.js"></script>
 <script style="text/javascript">

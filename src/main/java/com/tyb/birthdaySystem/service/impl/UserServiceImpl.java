@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.tyb.birthdaySystem.bean.User;
 import com.tyb.birthdaySystem.dao.IUserDao;
 import com.tyb.birthdaySystem.service.IUserService;
-import com.tyb.utils.LogCommonUtil;
+import com.tyb.util.LogCommonUtil;
 
 @Service("userService")
 public class UserServiceImpl implements IUserService{
@@ -25,15 +25,13 @@ public class UserServiceImpl implements IUserService{
 	 */
 	@Override
 	public User loginUser(User user) {
-		LogCommonUtil.INFO.info("登录中.....");
+		LogCommonUtil.INFO.info("登录服务");
 		User userS =userDao.findUserByName(user);
 		if(userS!=null&&StringUtils.isNotEmpty(userS.getUPassword())){
-			if(user.getUPassword().equals(userS.getUPassword())){
+			if(user.getUPassword().equals(userS.getUPassword()))
 				return userS;
-			}
 			return null;
 		}
-		
 		return null;
 	}
 

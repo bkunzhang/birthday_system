@@ -23,13 +23,13 @@
 	</resultMap>
 
 	<!-- 查询（根据主键ID查询） -->
-	<select id="selectByPrimaryKey" resultMap="infoMap" parameterType="java.lang.String">
+	<select id="selectByPrimaryKey" resultMap="infoMap">
 		 SELECT
 		 <include refid="Base_Column_List" />
 		 FROM bs_info
 		 WHERE info_id = #{infoId}
 	</select>
-
+	
 	<!--删除：根据主键ID删除-->
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		 DELETE FROM bs_info
@@ -175,5 +175,24 @@
 			 info_des = #{infoDes}
 		 WHERE info_id = #{infoId}
 	</update>
-
+	
+	<!-- 查询（根据用户ID查询） -->
+	<select id="getByUserId" resultMap="infoMap" parameterType="java.lang.String">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM bs_info
+		 WHERE info_fid = #{infoFid} 
+		 <if test="infoGid != null">
+		 	 and  info_gid = #{infoGid}
+		 </if>
+	</select>
+	
+	<!-- 根据日期获取所有用户的亲友 -->
+	<select id="getInfoByDate" resultType="java.util.HashMap" parameterType="java.lang.String">
+		 SELECT
+		 info_name, u_email
+		 FROM bs_info i, bs_user u
+		 WHERE  info_birthday = #{infoBirthday}  and i.isDel = "00"  and u.isDel = "00"
+		 and i.info_fid = u.u_id
+	</select>
 </mapper>

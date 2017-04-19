@@ -133,4 +133,16 @@ public class Info implements Serializable {
 		return this.infoDes;
 	}
 
+	@Override
+	public String toString() {
+		return "Info [infoId=" + infoId + ", infoName=" + infoName
+				+ ", infoSex=" + infoSex + ", infoBirthday=" + infoBirthday
+				+ ", infoCalendar=" + infoCalendar + ", infoPhoto=" + infoPhoto
+				+ ", infoRelation=" + infoRelation + ", infoGid=" + infoGid
+				+ ", infoFid=" + infoFid + ", isDel=" + isDel + ", infoDes="
+				+ infoDes + "]";
+	}
+	
+	
+
 }

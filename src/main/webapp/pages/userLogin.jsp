@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="form-bottom" >
-                    <form action="user/login.love" class="form-horizontal login-form" role="form" method="post" id="mainForm" name="mainForm">
+                    <form action="<%=basePath %>user/login.love" class="form-horizontal login-form" role="form" method="post" id="mainForm" name="mainForm" >
                         <div class="form-group">
                             <!-- <label for="name" class="col-sm-2 control-label">账 号</label> -->
                             <div class="col-sm-12 ">
@@ -65,7 +65,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" >登录</button>
+                                <button type="button" class="btn btn-primary" onclick="checkSubmit()" >登录</button>
                             </div>
                         </div>
                     </form>
@@ -76,7 +76,26 @@
     </div>
     </div>
 <script type="text/javascript" src="<%=basePath %>js/scripts.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/SHA256.js"></script>
 <script type="text/javascript">
+	function checkSubmit(){
+		var uName = $('#uName').val();
+		var uPassword = $('#uPassword').val();
+		if(uName!=null&&uPassword!=null){
+			$('#uPassword').val(sha256_digest(uPassword));
+			$("#mainForm").submit();
+		}else{ 
+			if(uName==null){
+				alert("姓名不为空！");
+			}
+			if(uPassword==null){
+				alert("密码不为空！");
+			}
+		}
+	}
+	
+	
+	//创建防重复提交token
 	$(function(){
 		creatToken('mainForm');
 	});

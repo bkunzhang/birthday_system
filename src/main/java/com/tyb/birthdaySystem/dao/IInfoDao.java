@@ -1,7 +1,11 @@
 package com.tyb.birthdaySystem.dao;
 
-import com.tyb.birthdaySystem.bean.Info;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
+
+import com.tyb.birthdaySystem.bean.Info;
 
 /**
  * 
@@ -17,14 +21,14 @@ public interface IInfoDao{
 	 * 查询（根据主键ID查询）
 	 * 
 	 **/
-	Info  selectByPrimaryKey ( @Param("infoId") Long id );
+	Info  selectByPrimaryKey ( @Param("infoId") String id );
 
 	/**
 	 * 
 	 * 删除（根据主键ID删除）
 	 * 
 	 **/
-	int deleteByPrimaryKey ( @Param("infoId") Long id );
+	int deleteByPrimaryKey ( @Param("infoId") String id );
 
 	/**
 	 * 
@@ -53,5 +57,20 @@ public interface IInfoDao{
 	 * 
 	 **/
 	int updateByPrimaryKey ( Info record );
-
+	
+	
+	/**
+	 * 
+	 * 根据所属用户、分组查询所有好友
+	 * 
+	 **/
+	List<Info> getByUserId (@Param("infoFid") String userId, @Param("infoGid") String groupId);
+	
+	/**
+	 * 
+	 * 根据日期获取所有用户的亲友
+	 * 
+	 **/
+	List<Map<String, Object>> getInfoByDate (@Param("infoBirthday") String date);
+	
 }

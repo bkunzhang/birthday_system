@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+html{height:100%; }
+body{height:100%; }
+.bgDiv img{width:200px}
+.bgDiv{ position:absolute; top:25%; left:35%; font-family:"微软雅黑"; }
+.bgDiv div{transition:all 0.35s}/*p标签下的所有动画效果0.35*/
+
+.imiJade {float:left; background-color:#CCC; margin-right:30px; }
+.imiWood {float:left; background-color:#CCC;}
+
+.imiJade:hover {opacity:0.95;transform:scale(1.1,1.1);}
+.imiWood:hover {opacity:0.95;transform:scale(1.1,1.1);}
+
+.f1 figcaption p{ margin:5%; text-align:center;}
+.f2 figcaption p{ margin:5%; text-align:center;}

@@ -33,11 +33,11 @@ public class UserController extends BaseServlet{
 	   */
 	  @RequestMapping(value = "toIndex.love", method = {RequestMethod.POST, RequestMethod.GET})
 	  public String toIndex(HttpServletRequest request,Model model,HttpSession httpSession){
-		  LogCommonUtil.INFO.info("进入登录请求"+this.getClass());
+		  LogCommonUtil.INFO.info("用户信息"+this.getClass());
 		  try{
-			  if(null==httpSession.getAttribute("id")){
+			  /*if(null==httpSession.getAttribute("id")){
 				  return "/pages/userLogin";
-			  }
+			  }*/
 			  User user = userService.getUserById(httpSession.getAttribute("id").toString());
 			  model.addAttribute("bean", user);
 			 // request.setAttribute("bean", user);
@@ -58,6 +58,7 @@ public class UserController extends BaseServlet{
 	  @RequestMapping(value = "login.love")
 	  public String login(HttpServletRequest request,User user,HttpSession httpSession, Model model){
 		  LogCommonUtil.INFO.info("进入登录请求");
+		  /*如果登录直接跳转首页*/
 		  String userSession =  (String) httpSession.getAttribute("id");
 		  if(userSession!=null){
 			  request.setAttribute("nickName",userService.getUserById(userSession)!=null?userService.getUserById(userSession).getUNick():"黑户");
@@ -103,7 +104,7 @@ public class UserController extends BaseServlet{
 			  return "/pages/main";
 		  }
 	 
-		  return "/pages/userLogin";
+		  return "/public/error";
 	  }
 
 

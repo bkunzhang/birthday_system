@@ -48,6 +48,15 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- 登录过滤 -->
+  <filter>
+		<filter-name>userLogin</filter-name>
+		<filter-class>com.tyb.birthdaySystem.filter.LoginFilter</filter-class>
+  </filter>
+	<filter-mapping>
+		<filter-name>userLogin</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
 
   <!-- Spring MVC servlet -->
   <servlet>

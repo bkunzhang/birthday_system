@@ -1,7 +1,8 @@
 package com.tyb.birthdaySystem.dao;
 
-import com.tyb.birthdaySystem.bean.User;
 import org.apache.ibatis.annotations.Param;
+
+import com.tyb.birthdaySystem.bean.User;
 
 /**
  * 

@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.binary.StringUtils;
-
 import com.tyb.util.LogCommonUtil;
 
 public class LoginFilter implements Filter {

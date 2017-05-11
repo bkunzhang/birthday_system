@@ -4,11 +4,9 @@ import java.util.Date;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.tyb.birthdaySystem.dao.IInfoDao;
-import com.tyb.birthdaySystem.service.IInfoService;
 import com.tyb.birthdaySystem.service.PollScheduService;
 
 /**
